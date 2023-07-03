@@ -62,6 +62,7 @@ body {
 #cart-table {
     border-collapse: separate;
     border-spacing: 0 1em;
+    margin: 0 auto;
 }
 
 thead {
