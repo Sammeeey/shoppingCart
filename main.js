@@ -22,6 +22,15 @@ function getProdName(elem) {
     return prodName
 }
 
+function getProdImgSrc(elem) {
+    console.log(elem)
+    const parentElem = elem.parentElement
+    console.log(parentElem)
+    const prodImgSrc = parentElem.querySelector('.product-img').src
+
+    return prodImgSrc
+}
+
 function getProdPrice(elem) {
     console.log(elem)
     const parentElem = elem.parentElement
@@ -34,13 +43,18 @@ function getProdPrice(elem) {
 function add2Cart(elem) {
     console.log(elem)
 
+    // get product data
     const prodName = getProdName(elem)
     console.log(prodName)
+    
+    const prodImgSrc = getProdImgSrc(elem)
+    console.log(prodImgSrc)
 
     const prodPrice = getProdPrice(elem)
     console.log(prodPrice)
 
-    return {prodName, prodPrice}
+
+    return {prodName, prodImgSrc, prodPrice}
 }
 
 // -- script
