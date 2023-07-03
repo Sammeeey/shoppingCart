@@ -38,7 +38,30 @@
 
     <section id="cart">
         <h2>Cart</h2>
-        <div class="cart-container">
+        <table id="cart-table">
+            <thead>
+                <td>item</td>
+                <td>price</td>
+                <td>quantity</td>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img class="cart-item-img" src="images/album.jpg" alt="">
+                    </td>
+                    <td>price</td>
+                    <td>
+                        <input type="number" name="quantity" id="item-quantity">
+                        <button>remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+        <!-- <div class="cart-container">
             <div class="cart-items">
                 <span>item</span>
                 <div class="cart-item">
@@ -59,7 +82,7 @@
             <div id="total">
                 <span>Total</span><span id="total-price">90989979,02€</span>
             </div>
-        </div>
+        </div> -->
     </section>
 </body>
 </html>

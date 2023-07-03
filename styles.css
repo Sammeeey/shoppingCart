@@ -59,6 +59,30 @@ body {
     margin: 0 auto;
 }
 
+#cart-table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+}
+
+thead {
+    text-decoration: underline;
+    text-underline-offset: .5em;
+}
+
+tbody {
+    padding-top: 1em;
+}
+
+.cart-item-img {
+    max-width: 70px;
+}
+
+
+
+
+
+
+
 .cart-items img {
     max-width: 70px;
 }
