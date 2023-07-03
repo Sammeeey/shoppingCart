@@ -61,7 +61,7 @@ body {
 
 #cart-table {
     border-collapse: separate;
-    border-spacing: 0 1em;
+    border-spacing: 1em 1em;
     margin: 0 auto;
 }
 
@@ -74,7 +74,7 @@ tbody {
     padding-top: 1em;
 }
 
-.cart-item-container {
+.cart-item {
     display: flex;
     align-items: center;
 }
@@ -83,7 +83,7 @@ tbody {
     max-width: 70px;
 }
 
-.cart-quantity-container input {
+.cart-quantity input {
     max-width: 40px;
 }
 
