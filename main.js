@@ -1,5 +1,7 @@
 // -- variables
 adCartBtns = document.querySelectorAll('.add-cart-btn')
+tableBody = document.querySelector('#cart-table tbody')
+console.log(tableBody)
 // for (const adCartBtn of adCartBtns) {
 //     console.log(adCartBtn)
 // }
@@ -53,6 +55,27 @@ function add2Cart(elem) {
     const prodPrice = getProdPrice(elem)
     console.log(prodPrice)
 
+    // add product data to cart
+    // create new tableRow element
+    const newTableRow = document.createElement('tr')
+    
+    // add new table row to body of cart table
+    tableBody.appendChild(newTableRow)
+
+    const cartItem = `
+    <td class="cart-item">
+        <img class="cart-item-img" src="${prodImgSrc}" alt="">
+        <span class="cart-item-name">${prodName}</span>
+    </td>
+    <td class="cart-price"><span class="cart-price-number">${prodPrice}</span><span class="cart-price-currency">€</span></td>
+    <td class="cart-quantity">
+        <input type="number" name="quantity" id="item-quantity" value="1">
+                <button>remove</button>
+    </td>
+    `
+
+    // append cartItem to new tablerow
+    newTableRow.innerHTML = cartItem
 
     return {prodName, prodImgSrc, prodPrice}
 }
