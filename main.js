@@ -1,8 +1,8 @@
 // -- variables
 adCartBtns = document.querySelectorAll('.add-cart-btn')
-for (const adCartBtn of adCartBtns) {
-    console.log(adCartBtn)
-}
+// for (const adCartBtn of adCartBtns) {
+//     console.log(adCartBtn)
+// }
 
 // -- functions
 // function getParentElem(elem) {
@@ -14,27 +14,27 @@ for (const adCartBtn of adCartBtns) {
 // }
 
 function getProdName(elem) {
-    console.log(elem)
+    // console.log(elem)
     const parentElem = elem.parentElement
-    console.log(parentElem)
+    // console.log(parentElem)
     const prodName = parentElem.querySelector('.product-name').innerHTML
 
     return prodName
 }
 
 function getProdImgSrc(elem) {
-    console.log(elem)
+    // console.log(elem)
     const parentElem = elem.parentElement
-    console.log(parentElem)
+    // console.log(parentElem)
     const prodImgSrc = parentElem.querySelector('.product-img').src
 
     return prodImgSrc
 }
 
 function getProdPrice(elem) {
-    console.log(elem)
+    // console.log(elem)
     const parentElem = elem.parentElement
-    console.log(parentElem)
+    // console.log(parentElem)
     const prodPrice = parentElem.querySelector('.product-price-number').innerHTML
 
     return prodPrice
