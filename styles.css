@@ -83,6 +83,10 @@ tbody {
     max-width: 70px;
 }
 
+.cart-quantity-container input {
+    max-width: 40px;
+}
+
 
 
 
