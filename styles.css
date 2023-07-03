@@ -74,6 +74,11 @@ tbody {
     padding-top: 1em;
 }
 
+.cart-item-container {
+    display: flex;
+    align-items: center;
+}
+
 .cart-item-img {
     max-width: 70px;
 }
