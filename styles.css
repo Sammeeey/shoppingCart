@@ -22,6 +22,11 @@ body {
     list-style: none;
     font-size: larger;
     font-weight: bold;
+    text-transform: uppercase;
+}
+
+#nav-main a:hover {
+    color: blueviolet;
 }
 
 #nav-main a {
@@ -30,15 +35,19 @@ body {
     cursor: pointer;
 }
 
-#products {
+.products-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
+.products-container h2 {
+    display: block;
+}
+
 .product {
     /* display: flex; */
-    text-align: center;
+    /* text-align: center; */
 }
 
 .product img {
