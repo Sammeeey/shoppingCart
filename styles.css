@@ -1,0 +1,58 @@
+/* -- mobile styles -- */
+@font-face {
+    font-family: "Roboto";
+    src: url("/fonts/Roboto/Roboto-Regular.ttf") format("truetype")
+}
+
+body {
+    font-family: 'Roboto';
+    font-weight: 800;
+    text-align: center;
+}
+
+#nav-main #logo {
+    max-width: 220px;
+    height: auto;
+}
+
+#nav-main ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    list-style: none;
+    font-size: larger;
+    font-weight: bold;
+}
+
+#nav-main a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+#products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product {
+    /* display: flex; */
+    text-align: center;
+}
+
+.product img {
+    width: 300px;
+    max-width: 50%;
+}
+
+.product button {
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* -- desktop styles -- */
+@media only screen and (min-width: 992px) {
+
+}
