@@ -74,7 +74,7 @@ tbody {
     padding-top: 1em;
 }
 
-.cart-item {
+.cart-item-column {
     display: flex;
     align-items: center;
 }
