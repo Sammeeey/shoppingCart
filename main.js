@@ -56,12 +56,10 @@ function add2Cart(elem) {
     console.log(prodPrice)
 
     // add product data to cart
-    // check if given item is already in cart
-    const prodInCart = isAlreadyInCart(prodName)
-
-    // if product already in cart: update amount and price (updateCartItem())
-    if (prodInCart) {
-        console.log(`prod ${prodName} already in cart... gonna update it`)
+    const existingCartItem = findCartItemByName(prodName)
+    if (existingCartItem) {
+        // update price of found cart item
+        // update amount of found cart item
         return
     }
 
@@ -90,17 +88,44 @@ function add2Cart(elem) {
     return {prodName, prodImgSrc, prodPrice, cartItem}
 }
 
-function isAlreadyInCart(itemName) {
-// check if given item is already in cart (true/false)
+// function isAlreadyInCart(itemName) {
+// // check if given item is already in cart (true/false)
+//     let alreadyInCart = false
+//     const cartItems = tableBody.querySelectorAll('.cart-item-name')
+//     console.log(cartItems)
+//     for (cartItemName of cartItems){
+//         console.log(cartItemName.innerHTML)
+//         if (cartItemName.innerHTML === itemName) {
+//             console.log(`${cartItemName.innerHTML} === ${itemName}`)
+//             alreadyInCart = true
+//             return alreadyInCart
+//         }
+//     }
+//     return alreadyInCart
+// }
+
+function findCartItemByName(itemName) {
+// check if given item is already in cart
+    // if is in cart: return respective .cart-item-name element
+    // if not in cart: return false
     let alreadyInCart = false
+    console.log(itemName)
     const cartItems = tableBody.querySelectorAll('.cart-item-name')
     console.log(cartItems)
-    for (cartItemName of cartItems){
-        console.log(cartItemName.innerHTML)
-        if (cartItemName.innerHTML === itemName) {
-            console.log(`${cartItemName.innerHTML} === ${itemName}`)
-            alreadyInCart = true
-            return alreadyInCart
+    // const cartItemNames = cartItems.filter(cartItem => cartItem.innerHTML) // filter() doesn't work in typeof nodeList
+    // console.log(cartItemNames)
+
+    // check if given item is already in cart
+    for (cartItem of cartItems){
+        const cartItemName = cartItem.innerHTML
+        console.log(`cartItem: ${cartItem}`)
+        // console.log(`cartItemName: ${cartItemName}`)
+
+        // if product already in cart: update amount and price (updateCartItem())
+        if (cartItemName === itemName) {
+            console.log(`${cartItemName} === ${itemName} (already in cart...gonna update it)`)
+            alreadyInCart = true // kind of unnecessary when actually returning element instead of false eventually 
+            return cartItem // return already existing cart item
         }
     }
     return alreadyInCart
