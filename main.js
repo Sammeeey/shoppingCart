@@ -78,7 +78,7 @@ function add2Cart(elem) {
     </td>
     <td class="cart-price"><span class="cart-price-number">${prodPrice}</span><span class="cart-price-currency">€</span></td>
     <td class="cart-quantity">
-        <input type="number" name="quantity" id="item-quantity" value="1">
+        <input type="number" name="quantity" class="item-quantity" value="1">
                 <button>remove</button>
     </td>
     `
@@ -154,7 +154,7 @@ function updateCartItem(productElement, cartItemElement) {
     document.querySelector
 
     // find cart item amount
-    const quantityElem = cartItemElement.querySelector('#item-quantity')
+    const quantityElem = cartItemElement.querySelector('.item-quantity')
     console.log(`quantityElem:`)
     console.log(quantityElem)
     let quantityValue = quantityElem.value
