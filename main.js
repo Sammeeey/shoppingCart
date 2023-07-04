@@ -154,9 +154,17 @@ function updateCartItem(productElement, cartItemElement) {
     document.querySelector
 
     // find cart item amount
-    // ...
-    // update cart item amount
-    // ...
+    const quantityElem = cartItemElement.querySelector('#item-quantity')
+    console.log(`quantityElem:`)
+    console.log(quantityElem)
+    let quantityValue = quantityElem.value
+    console.log(quantityValue)
+    let quantityNum = Number(quantityElem.value)
+
+    // update cart item amount (+1 by default)
+    quantityNum += 1
+    console.log(quantityNum)
+    quantityElem.value = quantityNum
 }
 
 function findCartItemPrice() {
