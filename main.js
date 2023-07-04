@@ -56,6 +56,16 @@ function add2Cart(elem) {
     console.log(prodPrice)
 
     // add product data to cart
+    // check if given item is already in cart
+    const prodInCart = isAlreadyInCart(prodName)
+
+    // if product already in cart: update amount and price (updateCartItem())
+    if (prodInCart) {
+        console.log(`prod ${prodName} already in cart... gonna update it`)
+        return
+    }
+
+    // if product not in cart: add new item/row for given product (add2Cart())
     // create new tableRow element
     const newTableRow = document.createElement('tr')
     
