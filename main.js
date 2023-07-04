@@ -80,4 +80,20 @@ function add2Cart(elem) {
     return {prodName, prodImgSrc, prodPrice, cartItem}
 }
 
+function isAlreadyInCart(itemName) {
+// check if given item is already in cart (true/false)
+    let alreadyInCart = false
+    const cartItems = tableBody.querySelectorAll('.cart-item-name')
+    console.log(cartItems)
+    for (cartItemName of cartItems){
+        console.log(cartItemName.innerHTML)
+        if (cartItemName.innerHTML === itemName) {
+            console.log(`${cartItemName.innerHTML} === ${itemName}`)
+            alreadyInCart = true
+            return alreadyInCart
+        }
+    }
+    return alreadyInCart
+}
+
 // -- script
