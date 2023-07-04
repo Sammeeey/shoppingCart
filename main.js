@@ -59,8 +59,7 @@ function add2Cart(elem) {
     const existingCartItem = findCartItemByName(prodName)
     console.log(existingCartItem)
     if (existingCartItem) { // if product already in cart: update amount and price (updateCartItem())
-        // update price of found cart item
-        // update amount of found cart item
+        updateCartItem(elem, existingCartItem)
         return existingCartItem
     }
 
@@ -133,6 +132,39 @@ function findCartItemByName(itemName) {
         }
     }
     return alreadyInCart
+}
+
+function updateCartItem(productElement, cartItemElement) {
+    console.log(productElement)
+    console.log(cartItemElement)
+    
+    // find cart item price
+    const cartPriceElem = cartItemElement.querySelector('.cart-price-number')
+    console.log(cartPriceElem)
+    let cartPriceNum = parseFloat(cartPriceElem.innerHTML)
+    console.log(cartPriceNum)
+    
+    // get product item price
+    const prodPriceNum = parseFloat(getProdPrice(productElement))
+    console.log(prodPriceNum)
+
+    // update cart item price
+    cartPriceElem.innerHTML = (cartPriceNum + prodPriceNum).toFixed(2)
+    console.log(cartPriceElem.innerHTML)
+    document.querySelector
+
+    // find cart item amount
+    // ...
+    // update cart item amount
+    // ...
+}
+
+function findCartItemPrice() {
+    
+}
+
+function findCartItemAmount() {
+
 }
 
 // -- script
