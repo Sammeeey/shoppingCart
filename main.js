@@ -57,10 +57,11 @@ function add2Cart(elem) {
 
     // add product data to cart
     const existingCartItem = findCartItemByName(prodName)
-    if (existingCartItem) {
+    console.log(existingCartItem)
+    if (existingCartItem) { // if product already in cart: update amount and price (updateCartItem())
         // update price of found cart item
         // update amount of found cart item
-        return
+        return existingCartItem
     }
 
     // if product not in cart: add new item/row for given product (add2Cart())
@@ -107,26 +108,28 @@ function add2Cart(elem) {
 
 function findCartItemByName(itemName) {
 // check if given item is already in cart
-    // if is in cart: return respective .cart-item-name element
+    // if is in cart: return respective .cart-item element
     // if not in cart: return false
     let alreadyInCart = false
     console.log(itemName)
-    const cartItems = tableBody.querySelectorAll('.cart-item-name')
-    console.log(cartItems)
-    // const cartItemNames = cartItems.filter(cartItem => cartItem.innerHTML) // filter() doesn't work in typeof nodeList
-    // console.log(cartItemNames)
+    const cartItemNameElems = tableBody.querySelectorAll('.cart-item-name')
+    console.log(cartItemNameElems)
+    // const cartItemNameElems = cartItemNameElems.filter(cartItem => cartItem.innerHTML) // filter() doesn't work in typeof nodeList
+    // console.log(cartItemNameElems)
 
     // check if given item is already in cart
-    for (cartItem of cartItems){
-        const cartItemName = cartItem.innerHTML
-        console.log(`cartItem: ${cartItem}`)
+    for (cartItemNameElem of cartItemNameElems){
+        const cartItemName = cartItemNameElem.innerHTML
+        console.log(`cartItemNameElem: ${cartItemNameElem}`)
         // console.log(`cartItemName: ${cartItemName}`)
 
-        // if product already in cart: update amount and price (updateCartItem())
+        // if product already in cart: return whole .cart-item
         if (cartItemName === itemName) {
             console.log(`${cartItemName} === ${itemName} (already in cart...gonna update it)`)
             alreadyInCart = true // kind of unnecessary when actually returning element instead of false eventually 
-            return cartItem // return already existing cart item
+            const cartItemElem = cartItemNameElem.closest('.cart-item')
+
+            return cartItemElem // return already existing cart item
         }
     }
     return alreadyInCart
