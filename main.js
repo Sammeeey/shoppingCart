@@ -77,7 +77,7 @@ function add2Cart(elem) {
     // append cartItem to new tablerow
     newTableRow.innerHTML = cartItem
 
-    return {prodName, prodImgSrc, prodPrice}
+    return {prodName, prodImgSrc, prodPrice, cartItem}
 }
 
 // -- script
