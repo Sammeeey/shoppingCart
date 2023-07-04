@@ -2,6 +2,13 @@
 adCartBtns = document.querySelectorAll('.add-cart-btn')
 tableBody = document.querySelector('#cart-table tbody')
 console.log(tableBody)
+quantityInputs = document.querySelectorAll('.item-quantity')
+quantityInputs.forEach(element => {
+    element.addEventListener("change", () => console.log(element.value))
+    // let quantityInputValue = element.value 
+    // console.log(quantityInputValue)
+});
+
 // for (const adCartBtn of adCartBtns) {
 //     console.log(adCartBtn)
 // }
