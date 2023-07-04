@@ -66,12 +66,13 @@ function add2Cart(elem) {
     // if product not in cart: add new item/row for given product (add2Cart())
     // create new tableRow element
     const newTableRow = document.createElement('tr')
+    newTableRow.classList.add('cart-item')
     
     // add new table row to body of cart table
     tableBody.appendChild(newTableRow)
 
     const cartItem = `
-    <td class="cart-item">
+    <td class="cart-item-column">
         <img class="cart-item-img" src="${prodImgSrc}" alt="">
         <span class="cart-item-name">${prodName}</span>
     </td>
