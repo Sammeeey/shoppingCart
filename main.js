@@ -28,9 +28,7 @@ quantityInputs.forEach(element => {
     element.addEventListener("change", function() {
         console.log(element)
         console.log(element.value)
-        let changedProdName = getProdName(element)
-        let inpProdPrice = prodInfoFromList(changedProdName, 'price')
-        let inpIncreased = inputIncreased(element, element.value)
+        updateProdInfo(element, 'cartQuantity', Number(element.value))
     })    // let quantityInputValue = element.value 
     // console.log(quantityInputValue)
 });
@@ -238,21 +236,19 @@ function prodInfoFromList(productName, infoKey) {
     }
 }
 
-function inputIncreased(inputElem, newQuantity) { // => undefined, true, false
-    // check whether value of input field has increased (compared to value stored in DB)
-    let inputIncreased = undefined
-    // get name of input elements product
-    prodName = getProdName(inputElem)
-    const previousQuantity = prodInfoFromList(prodName, 'cartQuantity')
-    // compare previous & new quantity
-    if (Number(previousQuantity) > Number(newQuantity)) {
-        inputIncreased = true
-        return inputIncreased
-    } else if (Number(previousQuantity) < Number(newQuantity)) {
-        inputIncreased = false
-        return inputIncreased
+function updateProdInfo(inputElem, infoKey, updateInfoValue) {
+    // update certain info of product in list of products (pseudo-db)
+    // find object with certain name in list of products
+    inputProdName = getProdName(inputElem)
+    for (prod of products) {
+        if (prod.name === inputProdName) {
+            // update info of found product
+            prod[infoKey] = updateInfoValue
+            console.log(`updateInfoValue: ${updateInfoValue}`)
+            console.log(`prod[infoKey]: ${prod[infoKey]}`)
+            return prod[infoKey]
+        } 
     }
-    return inputIncreased // could be `undefined`
 }
 
 // -- script
