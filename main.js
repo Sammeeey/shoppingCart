@@ -29,7 +29,7 @@ quantityInputs.forEach(element => {
         console.log(element)
         console.log(element.value)
         let changedProdName = getProdName(element)
-        prodPriceFromList(changedProdName)
+        prodInfoFromList(changedProdName, 'name')
     })    // let quantityInputValue = element.value 
     // console.log(quantityInputValue)
 });
@@ -225,14 +225,14 @@ function findCartItemAmount() {
 
 }
 
-function prodPriceFromList(productName) {
+function prodInfoFromList(productName, infoKey) {
     // find object with productName in list of products
     for (prod of products) {
         if (prod.name === productName) {
-            // get price of found product
-            const productPrice = prod.price
-            console.log(`productPrice: ${productPrice}`)
-            return productPrice
+            // get info of found product
+            const prodInfo = prod[infoKey]
+            console.log(`prodInfo: ${prodInfo}`)
+            return prodInfo
         } 
     }
 }
