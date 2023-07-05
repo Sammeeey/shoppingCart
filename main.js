@@ -4,19 +4,19 @@ products = [
         // id: 1,
         name: 'Album',
         price: 5.99,
-        cartQuantity: 0,
+        cartQuantity: 3,
     },
     {
         // id: 2,
         name: 'Shirt',
         price: 27.99,
-        cartQuantity: 0,
+        cartQuantity: 4,
     },
     {
         // id: 3,
         name: 'Coffee Cup',
         price: 4.99,
-        cartQuantity: 0,
+        cartQuantity: 5,
     },
 ]
 
@@ -29,7 +29,8 @@ quantityInputs.forEach(element => {
         console.log(element)
         console.log(element.value)
         let changedProdName = getProdName(element)
-        prodInfoFromList(changedProdName, 'name')
+        let inpProdPrice = prodInfoFromList(changedProdName, 'price')
+        let inpIncreased = inputIncreased(element, element.value)
     })    // let quantityInputValue = element.value 
     // console.log(quantityInputValue)
 });
@@ -235,6 +236,23 @@ function prodInfoFromList(productName, infoKey) {
             return prodInfo
         } 
     }
+}
+
+function inputIncreased(inputElem, newQuantity) { // => undefined, true, false
+    // check whether value of input field has increased (compared to value stored in DB)
+    let inputIncreased = undefined
+    // get name of input elements product
+    prodName = getProdName(inputElem)
+    const previousQuantity = prodInfoFromList(prodName, 'cartQuantity')
+    // compare previous & new quantity
+    if (Number(previousQuantity) > Number(newQuantity)) {
+        inputIncreased = true
+        return inputIncreased
+    } else if (Number(previousQuantity) < Number(newQuantity)) {
+        inputIncreased = false
+        return inputIncreased
+    }
+    return inputIncreased // could be `undefined`
 }
 
 // -- script
