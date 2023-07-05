@@ -1,4 +1,25 @@
 // -- variables
+products = [
+    {
+        // id: 1,
+        name: 'Album',
+        price: 5.99,
+        cartQuantity: 0,
+    },
+    {
+        // id: 2,
+        name: 'Shirt',
+        price: 27.99,
+        cartQuantity: 0,
+    },
+    {
+        // id: 3,
+        name: 'Coffee Cup',
+        price: 4.99,
+        cartQuantity: 0,
+    },
+]
+
 adCartBtns = document.querySelectorAll('.add-cart-btn')
 tableBody = document.querySelector('#cart-table tbody')
 console.log(tableBody)
