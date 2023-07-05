@@ -7,6 +7,7 @@ quantityInputs.forEach(element => {
     element.addEventListener("change", function() {
         console.log(element)
         console.log(element.value)
+        getProdName(element)
     })    // let quantityInputValue = element.value 
     // console.log(quantityInputValue)
 });
@@ -26,11 +27,29 @@ quantityInputs.forEach(element => {
 
 function getProdName(elem) {
     // console.log(elem)
-    const parentElem = elem.parentElement
-    // console.log(parentElem)
-    const prodName = parentElem.querySelector('.product-name').innerHTML
+    // const parentElem = elem.parentElement
+    // // console.log(parentElem)
+    // const prodName = parentElem.querySelector('.product-name').innerHTML
+    console.log(elem)
+    const product = elem.closest('.product')
+    console.log(product)
+    if (product) {
+        // get prodName from product
+        const prodName = product.querySelector('.product-name').innerHTML
+        console.log(prodName)
 
-    return prodName
+        return prodName
+    }
+    
+    const cartItem = elem.closest('.cart-item')
+    console.log(cartItem)
+    if (cartItem) {
+        // get prodName from cart-item
+        const prodName = cartItem.querySelector('.cart-item-name').innerHTML
+        console.log(prodName)
+
+        return prodName
+    }
 }
 
 function getProdImgSrc(elem) {
