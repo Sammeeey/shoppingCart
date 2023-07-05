@@ -4,8 +4,10 @@ tableBody = document.querySelector('#cart-table tbody')
 console.log(tableBody)
 quantityInputs = document.querySelectorAll('.item-quantity')
 quantityInputs.forEach(element => {
-    element.addEventListener("change", () => console.log(element.value))
-    // let quantityInputValue = element.value 
+    element.addEventListener("change", function() {
+        console.log(element)
+        console.log(element.value)
+    })    // let quantityInputValue = element.value 
     // console.log(quantityInputValue)
 });
 
