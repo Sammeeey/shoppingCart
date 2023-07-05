@@ -28,7 +28,8 @@ quantityInputs.forEach(element => {
     element.addEventListener("change", function() {
         console.log(element)
         console.log(element.value)
-        getProdName(element)
+        let changedProdName = getProdName(element)
+        prodPriceFromList(changedProdName)
     })    // let quantityInputValue = element.value 
     // console.log(quantityInputValue)
 });
@@ -222,6 +223,18 @@ function findCartItemPrice() {
 
 function findCartItemAmount() {
 
+}
+
+function prodPriceFromList(productName) {
+    // find object with productName in list of products
+    for (prod of products) {
+        if (prod.name === productName) {
+            // get price of found product
+            const productPrice = prod.price
+            console.log(`productPrice: ${productPrice}`)
+            return productPrice
+        } 
+    }
 }
 
 // -- script
