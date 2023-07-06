@@ -1,24 +1,28 @@
 // -- variables
-products = [
+const products = [
     {
         // id: 1,
         name: 'Album',
         price: 5.99,
         cartQuantity: 3,
+        getCartValue() {return Number((this.price*this.cartQuantity).toFixed(2))}
     },
     {
         // id: 2,
         name: 'Shirt',
         price: 27.99,
         cartQuantity: 4,
+        getCartValue() {return Number((this.price*this.cartQuantity).toFixed(2))}
     },
     {
         // id: 3,
         name: 'Coffee Cup',
         price: 4.99,
         cartQuantity: 5,
+        getCartValue() {return Number((this.price*this.cartQuantity).toFixed(2))}
     },
 ]
+console.log(products[0].getCartValue())
 
 adCartBtns = document.querySelectorAll('.add-cart-btn')
 tableBody = document.querySelector('#cart-table tbody')
