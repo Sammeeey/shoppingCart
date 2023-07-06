@@ -169,12 +169,13 @@ function findCartItemByName(itemName) {
     // check if given item is already in cart
     for (cartItemNameElem of cartItemNameElems){
         const cartItemName = cartItemNameElem.innerHTML
-        console.log(`cartItemNameElem: ${cartItemNameElem}`)
+        console.log(`cartItemNameElem:`)
+        console.log(cartItemNameElem)
         // console.log(`cartItemName: ${cartItemName}`)
 
         // if product already in cart: return whole .cart-item
         if (cartItemName === itemName) {
-            console.log(`${cartItemName} === ${itemName} (already in cart...gonna update it)`)
+            console.log(`${cartItemName} === ${itemName} (already in cart)`)
             alreadyInCart = true // kind of unnecessary when actually returning element instead of false eventually 
             const cartItemElem = cartItemNameElem.closest('.cart-item')
 
