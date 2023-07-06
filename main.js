@@ -29,6 +29,7 @@ quantityInputs.forEach(element => {
         console.log(element)
         console.log(element.value)
         updateProdInfo(element, 'cartQuantity', Number(element.value))
+        setCartItemPrice(element)
     })    // let quantityInputValue = element.value 
     // console.log(quantityInputValue)
 });
@@ -249,6 +250,23 @@ function updateProdInfo(inputElem, infoKey, updateInfoValue) {
             return prod[infoKey]
         } 
     }
+}
+
+function setCartItemPrice(elem) {
+    // get name of cart item from db
+    prodName = getProdName(elem)
+    console.log(`prodName: ${prodName}`)
+    // get price of cart item from db
+    const price = prodInfoFromList(prodName, 'price')
+    // get quantity of cart item from db
+    const quantity = prodInfoFromList(prodName, 'cartQuantity')
+    // multiply quantity with price
+    const cartPrice = price * quantity
+    console.log(`cartPrice: ${cartPrice}`)
+    // update cart item with new price
+    const cartItemElem = findCartItemByName(prodName)
+    cartItemElem.querySelector('.cart-price-number').innerHTML = cartPrice.toFixed(2)
+    console.log(cartPrice)
 }
 
 // -- script
