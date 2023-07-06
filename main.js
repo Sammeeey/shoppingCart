@@ -231,7 +231,7 @@ function prodInfoFromList(productName, infoKey) {
         if (prod.name === productName) {
             // get info of found product
             const prodInfo = prod[infoKey]
-            console.log(`prodInfo: ${prodInfo}`)
+            console.log(`${infoKey}: ${prodInfo}`)
             return prodInfo
         } 
     }
