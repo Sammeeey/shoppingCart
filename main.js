@@ -22,7 +22,9 @@ const products = [
         getCartValue() {return Number((this.price*this.cartQuantity).toFixed(2))}
     },
 ]
-console.log(products[0].getCartValue())
+let globalCartTotal = Number()
+console.log(globalCartTotal)
+// console.log(products[0].getCartValue())
 
 adCartBtns = document.querySelectorAll('.add-cart-btn')
 tableBody = document.querySelector('#cart-table tbody')
@@ -272,6 +274,23 @@ function setCartItemPrice(elem) {
     const cartItemElem = findCartItemByName(prodName)
     cartItemElem.querySelector('.cart-price-number').innerHTML = cartPrice.toFixed(2)
     console.log(cartPrice)
+    // update total price of cart
+    updateCartTotal()
 }
+
+function updateCartTotal() {
+    let cartTotalNumElem = document.querySelector('.cart-total-price-number')
+    const cartValues = products.map(product => product.getCartValue())
+    console.log(cartValues)
+    globalCartTotal = Number(0)
+    console.log(globalCartTotal)
+    cartTotalNumElemText = cartValues.forEach(num => globalCartTotal += num)
+    globalCartTotal = Number(globalCartTotal.toFixed(2))
+    console.log(globalCartTotal)
+    // update total price element
+    cartTotalNumElem.innerHTML = globalCartTotal
+}
+// updateCartTotal()
+// console.log(globalCartTotal)
 
 // -- script
