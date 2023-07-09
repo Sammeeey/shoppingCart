@@ -54,8 +54,10 @@ function removeFromCart(elem) {
 }
 
 function numFromString(stringg) {
-    const r = new RegExp("\d+")
+    // console.log(stringg)
+    let r = new RegExp("\\d+")  // find number in string: https://stackoverflow.com/a/1623227/12946000
     const num = stringg.match(r)
+    // console.log(num)
     return Number(num) // Number or undefined
 }
 
