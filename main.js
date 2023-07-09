@@ -62,9 +62,35 @@ function add2Cart(elem) {
 
 function createCartElem(id) {
     // create a cart-item element with info from db (only create it!)
-        // (only add if not yet in cart: itemInCart()) <-- NO JUST DO IT! This is not the place to if/else
+        // create new table row element with cart-item class and cart-item-X id
+        // get product image path from db (based on id)
+        // get product name from db (based on id)
+        // get product price from db (based on id)
         // add product id to HTML of cart-item, based on index of product inside db (to access cart-item & product in db quickly): HTML element id => `cart-item-${id}` (numFromString())
     // return HTML elem
+    const newTableRowElem = document.createElement('tr')
+    newTableRowElem.classList.add('cart-item')
+    newTableRowElem.id = `cart-item-${id}`
+    // console.log('newTableRowElem:')
+    // console.log(newTableRowElem)
+
+    const imPath = products[id].imgPath
+    const prodName = products[id].name
+    const price = products[id].price
+    const cartItemCol = `
+    <td class="cart-item-column">
+        <img class="cart-item-img" src="${imPath}" alt="">
+        <span class="cart-item-name">${prodName}</span>
+    </td>
+    <td class="cart-price"><span class="cart-price-number">${price}</span><span class="cart-price-currency">€</span></td>
+    <td class="cart-quantity">
+        <input type="number" name="quantity" class="item-quantity" value="1">
+                <button>remove</button>
+    </td>
+    `
+    newTableRowElem.innerHTML = cartItemCol
+
+    return newTableRowElem
 }
 
 function updateTotal() {
@@ -88,15 +114,25 @@ function numFromString(stringg) {
 
 function updateProduct(id, quantity=undefined) {
     // update product - 1st in db, then in HTML
-        // if cart-item with given id not in cart (getCartElemById() === undefined):
+        // if cart-item with given id not in cart (document.querySelector(`#cart-item-${id}`) === null):
             // increase cartQuantity of product with respective id in db by 1 (product[id].cartQuantity += 1)
             // create cart-item (createCartElem())
             // append created cart-item to cart table body (tableBody.appendChild(newTableRowElem))
-        // if cart-item with given id already in cart & quantity argument not undefined (getCartElemById() === elem && quantity !== undefined): // expected to never be true while attempting to add item to cart (because add2Cart() wouldn't call updateProduct() if respective product was already in cart)
+        // if cart-item with given id already in cart & quantity argument not undefined (document.querySelector(`#cart-item-${id}`) !== null && quantity !== undefined): // expected to never be true while attempting to add item to cart (because add2Cart() wouldn't call updateProduct() if respective product was already in cart)
             // update cartQuantity in product db via quantity argument (product[id].cartQuantity = quantity)
             // get cart value for cart-item from db (product[id].getCartValue())
             // update cart value (.cart-price-number) of cart-item HTML element, using gotten cart value from db
         // updateTotal()
+    if (document.querySelector(`#cart-item-${id}`) === null) {
+        // console.log(products[id].cartQuantity)
+        products[id].cartQuantity += 1
+        const cartItemElem = createCartElem(id)
+        // console.log(cartItemElem)
+        tableBody.appendChild(cartItemElem)
+    }
+    if (document.querySelector(`#cart-item-${id}`) !== null && quantity !== undefined) {
+        console.log('already in cart & quantity argument not undefined')
+    }
 }
 
 function purchase() {
