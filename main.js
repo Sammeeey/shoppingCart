@@ -51,11 +51,11 @@ function add2Cart(elem) {
     let dbProdId = numFromString(productElem.id)
     // console.log(dbProdId)
 
-    if (getCartElemById(dbProdId) !==  undefined) {
+    if (document.querySelector(`#cart-item-${dbProdId}`) !==  null) {
         alert('This item is already in your cart')
         return
     }
-    if (getCartElemById(dbProdId) === undefined) {
+    if (document.querySelector(`#cart-item-${dbProdId}`) === null) {
         updateProduct(dbProdId)
     }
 }
@@ -65,11 +65,6 @@ function createCartElem(id) {
         // (only add if not yet in cart: itemInCart()) <-- NO JUST DO IT! This is not the place to if/else
         // add product id to HTML of cart-item, based on index of product inside db (to access cart-item & product in db quickly): HTML element id => `cart-item-${id}` (numFromString())
     // return HTML elem
-}
-
-function getCartElemById(id) {
-    // get HTML element with given id in cart (HTML element id => `cart-item-${id}`)
-    // return (potentially not found) cart-item (elem/undefined)
 }
 
 function updateTotal() {
