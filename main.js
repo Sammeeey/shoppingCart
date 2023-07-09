@@ -28,6 +28,20 @@ function add2Cart(elem) {
         // get id from HTML of elem using RegEx (https://stackoverflow.com/a/1623227/12946000): HTML element id => `product-${id}` (numFromString())
         // if in cart (getCardElemById(regExId) !== undefined): alert: *This item is already in your cart* & return nothing
         // if not in cart (getCardElemById(regExId) === undefined): updateProduct()
+    let productElem = elem.closest('.product')
+    // console.log(productElem)
+    // console.log(productElem.id)
+    
+    let dbProdId = numFromString(productElem.id)
+    // console.log(dbProdId)
+
+    if (getCartElemById(dbProdId) !==  undefined) {
+        alert('This item is already in your cart')
+        return
+    }
+    if (getCartElemById(dbProdId) === undefined) {
+        updateProduct(dbProdId)
+    }
 }
 
 function createCartElem(id) {
