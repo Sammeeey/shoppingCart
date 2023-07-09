@@ -1,13 +1,29 @@
 // -- selectors / variables
 products = [ // list of product objects
-    // {
-    //     id: 0,
-    //     name: 'Album',
-    //     price: 5.99,
-    //     cartQuantity: 3,
-    //     imgPath: 'images/album.jpg',
-    //     getCartValue() {return Number((this.price*this.cartQuantity).toFixed(2))}
-    // },
+    {
+        id: 0,
+        name: 'Album',
+        price: 5.99,
+        cartQuantity: 0,
+        imgPath: 'images/album.jpg',
+        getCartValue() {return Number((this.price*this.cartQuantity).toFixed(2))}
+    },
+    {
+        id: 1,
+        name: 'Shirt',
+        price: 27.99,
+        cartQuantity: 0,
+        imgPath: 'images/shirt.jpg',
+        getCartValue() {return Number((this.price*this.cartQuantity).toFixed(2))}
+    },
+    {
+        id: 2,
+        name: 'Coffee Cup',
+        price: 4.99,
+        cartQuantity: 0,
+        imgPath: 'images/coffeecup.jpg',
+        getCartValue() {return Number((this.price*this.cartQuantity).toFixed(2))}
+    },
 ]
 
 const tableBody = document.querySelector('#cart-table tbody')
