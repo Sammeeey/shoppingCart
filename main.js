@@ -35,6 +35,27 @@ const tableBody = document.querySelector('#cart-table tbody')
         // get id of cart elem from HTML using RegEx (https://stackoverflow.com/a/1623227/12946000): HTML element id => `cart-item-${id}`
         // get new product quantity from value attribute of HTML input field
         // updateProduct(id, quantity=quanFromHTML)
+document.addEventListener("change", event => {
+    if (event.target.matches('.item-quantity')) {
+        // console.log('input changed')
+        let quanInputElem = event.target
+        // console.log(quanInputElem)
+
+        let ElemId = quanInputElem.closest('.cart-item').id
+        // console.log(ElemId)
+        
+        let prodId = numFromString(ElemId)
+        // console.log(prodId)
+
+        // console.log(quanInputElem.value)
+        if (Number(quanInputElem.value) < 1) {
+            alert("cart quantity can't be smaller than 0 (click 'remove' to remove from cart)")
+            quanInputElem.value = 1
+            return
+        }
+        updateProduct(prodId, quanInputElem=quanInputElem.value)
+    }
+})
 
 
 // -- functions
@@ -131,8 +152,15 @@ function updateProduct(id, quantity=undefined) {
         tableBody.appendChild(cartItemElem)
     }
     if (document.querySelector(`#cart-item-${id}`) !== null && quantity !== undefined) {
-        console.log('already in cart & quantity argument not undefined')
+        products[id].cartQuantity = quantity
+        // console.log(products[id].cartQuantity)
+        let cartPrice = document.querySelector(`#cart-item-${id} .cart-price-number`)
+        // console.log('cartPrice:')
+        // console.log(cartPrice)
+        cartPrice.innerHTML = (products[id].price * products[id].cartQuantity).toFixed(2)
+        // console.log(`cart quantity of product ${products[id].name} updated: ${products[id].cartQuantity}`)
     }
+    updateTotal()
 }
 
 function purchase() {
