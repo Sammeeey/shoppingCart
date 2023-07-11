@@ -189,4 +189,14 @@ function purchase() {
     // get list of all .cart-item elements inside tableBody
     // remove each .cart-item element in tableBody (forEach(removeFromCart()))
     // alert: *Thank you for your purchase*
+    // update cart total price
+    const cartItemElems = tableBody.querySelectorAll('.cart-item')
+    // console.log(cartItemElems)
+
+    // cartItemElems.forEach(cartItemElem => console.log(cartItemElem))
+    cartItemElems.forEach(cartItemElem => removeFromCart(cartItemElem))
+
+    alert('Thank your for your purchase')
+
+    updateTotal()
 }
