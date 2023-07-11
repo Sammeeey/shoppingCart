@@ -1,6 +1,7 @@
 # shoppingCart
 - (frontend) shopping cart inspired by [*Web Dev Simplified* Tutorial](https://youtu.be/YeFzkC2awTM?list=PLZlA0Gpn_vH9xx-RRVNG187ETT2ekWFsq)
-![shoppingCartVideo](shoppingCart.mp4)
+
+https://github.com/Sammeeey/shoppingCart/assets/49591562/8ef8fb3e-3aed-453d-b808-cfada6b01304
 ## features
 - [x] add to cart
   - [x] button
