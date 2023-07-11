@@ -116,6 +116,13 @@ function createCartElem(id) {
 
 function updateTotal() {
     // update total price of cart based on price & quantity of all items in db with quantity > 0
+    let cartTotal = Number()
+
+    const cartValues = products.map(product => product.getCartValue())
+    // console.log(cartValues)
+    
+    cartValues.forEach(cartValue => cartTotal = (Number(cartTotal) + Number(cartValue)).toFixed(2))
+    // console.log(cartTotal)
 }
 
 function removeFromCart(elem) {
