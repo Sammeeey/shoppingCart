@@ -123,6 +123,10 @@ function updateTotal() {
     
     cartValues.forEach(cartValue => cartTotal = (Number(cartTotal) + Number(cartValue)).toFixed(2))
     // console.log(cartTotal)
+
+    const cartTotalElem = document.querySelector('#cart-total-price-number')
+    cartTotalElem.innerHTML = cartTotal
+    // console.log(cartTotalElem)
 }
 
 function removeFromCart(elem) {
