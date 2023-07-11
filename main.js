@@ -106,7 +106,7 @@ function createCartElem(id) {
     <td class="cart-price"><span class="cart-price-number">${price}</span><span class="cart-price-currency">€</span></td>
     <td class="cart-quantity">
         <input type="number" name="quantity" class="item-quantity" value="1">
-                <button>remove</button>
+                <button class="remove-btn" onclick="removeFromCart(this)">remove</button>
     </td>
     `
     newTableRowElem.innerHTML = cartItemCol
@@ -130,10 +130,21 @@ function updateTotal() {
 }
 
 function removeFromCart(elem) {
-    // get id of elem
+    // get cart-item elem
+    // remove cart-item elem from HTML cart table body: https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
     // get id of cart elem from HTML using RegEx (https://stackoverflow.com/a/1623227/12946000): HTML element id => `cart-item-${id}` (numFromString())
-    // remove element with given id from HTML cart table body: https://developer.mozilla.org/en-US/docs/Web/API/Element/remove
     // set cartQuantity of product in db to 0
+    removeElem = elem.closest('.cart-item')
+    // console.log(removeElem)
+    removeElem.remove()
+
+    const cartItemId = removeElem.id
+    // console.log(cartItemId)
+    const prodId = numFromString(cartItemId)
+    // console.log(prodId)
+    
+    products[prodId].cartQuantity = 0
+    // console.log(products)
 }
 
 function numFromString(stringg) {
